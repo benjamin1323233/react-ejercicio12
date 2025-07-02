@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react';
 
 const Noticia = ({ categoria, pais }) => {
   const [noticia, setNoticia] = useState(null);
-
-  // Mapeo de categorías y países
   const mapCategoria = {
     "1": "apple",
     "2": "tesla",
@@ -14,18 +12,16 @@ const Noticia = ({ categoria, pais }) => {
   };
 
   const mapPais = {
-    "1": "ar", // Código ISO para Argentina
-    "2": "cl", // Chile
-    "3": "pe", // Perú
-    "4": "us"  // Estados Unidos
+    "1": "ar",
+    "2": "cl",
+    "3": "pe",
+    "4": "us" 
   };
 
   useEffect(() => {
     const obtenerNoticia = async () => {
       const valorcategoria = mapCategoria[categoria];
       const valorpais = mapPais[pais];
-
-      // Evitar ejecutar si no hay selección válida
       if (!valorcategoria || !valorpais) return;
 
       try {
